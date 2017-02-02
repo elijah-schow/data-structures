@@ -26,7 +26,6 @@ var LinkedList = function() {
   list.contains = function(target) {
     var result = false;
     var node = this.head;
-
     do {
       if (node.value === target) {
         result = true;
