@@ -34,7 +34,6 @@ queueMethods.size = function () {
   if (this.first === null || this.last === null) {
     result = 0;
   } else {
-    debugger
     result = this.last - this.first + 1;
   }
   return result;
