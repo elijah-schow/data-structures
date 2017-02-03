@@ -24,4 +24,12 @@ describe('set', function() {
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
 
+  it('should only contain unique values', function() {
+    set.add('Elon Musk');
+    set.add('Elon Musk');
+    set.add('Jeff Bezos');
+    set.add('Steve Jobs');
+    expect(_.uniq(set._storage)).to.eql(set._storage);
+  });
+
 });
