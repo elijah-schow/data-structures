@@ -64,5 +64,4 @@ describe('linkedList', function() {
     }, true)).to.equal(true);
   });
 
-  // add more tests here to test the functionality of linkedList
 });
