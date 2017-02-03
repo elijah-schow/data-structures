@@ -51,5 +51,18 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
+  it('should only have nodes whose next value is null when they are the tail', function() {
+    linkedList.addToTail(1);
+    linkedList.addToTail(4);
+    linkedList.addToTail(9);
+    linkedList.addToTail(10);
+    expect(_.reduce(linkedList, function(memo, item) {
+      if (item.next === null && linkedList.tail !== item) {
+        return false;
+      }
+      return memo;
+    }, true)).to.equal(true);
+  });
+
   // add more tests here to test the functionality of linkedList
 });
