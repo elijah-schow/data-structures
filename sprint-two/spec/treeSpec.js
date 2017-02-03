@@ -41,4 +41,14 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  it('should return true if children exist', function() {
+    tree.addChild(4);
+    tree.addChild(3);
+    tree.addChild(2);
+    expect(tree.hasChildren()).to.equal(true);
+  });
+
+  it('should return false if children do not exist', function() {
+    expect(tree.hasChildren()).to.equal(false);
+  });
 });

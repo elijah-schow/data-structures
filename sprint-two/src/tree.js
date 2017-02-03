@@ -19,7 +19,7 @@ treeMethods.contains = function(target) {
 
   if(this.value === target){
     result = true;
-  } else if(this.children.length > 0) {
+  } else if(this.hasChildren()) {
     result = _.reduce(this.children, function(memo, child){
       return child.contains(target) || memo;
     }, false);
@@ -28,12 +28,18 @@ treeMethods.contains = function(target) {
   return result;
 };
 
+treeMethods.hasChildren = function() {
+  return this.children.length > 0;
+}
+
+
+
 
 
 /*
  * Complexity: What is the time complexity of the above functions?
  *
  *  addChild: O(1)
- *  contains: ...
+ *  contains: O(n)
  *
  */
