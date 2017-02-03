@@ -36,4 +36,11 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3]);
   });
+
+  it('should not insert a value that the tree already contains', function(){
+    binarySearchTree.insert(5);
+    expect(binarySearchTree.value).to.equal(5);
+    expect(binarySearchTree.right).to.equal(null);
+    expect(binarySearchTree.left).to.equal(null);
+  });
 });
