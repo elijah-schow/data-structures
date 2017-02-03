@@ -68,4 +68,13 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+
+  it('should not overwrite an existing node', function(){
+    graph.addNode(5);
+    graph.addNode(2);
+    graph.addEdge(5, 2);
+    graph.addNode(5);
+    graph.addNode(2);
+    expect(graph.hasEdge(5, 2)).to.equal(true);
+  });
 });
