@@ -6,7 +6,7 @@ var Stack = function() {
 Stack.prototype.push = function(value) {
   this.sizeProp++;
   this.storage[this.sizeProp] = value;
-}
+};
 
 Stack.prototype.pop = function() {
   var result = this.storage[this.sizeProp];
@@ -15,8 +15,8 @@ Stack.prototype.pop = function() {
     this.sizeProp--;
   }
   return result;
-}
+};
 
 Stack.prototype.size = function() {
   return this.sizeProp;
-}
+};

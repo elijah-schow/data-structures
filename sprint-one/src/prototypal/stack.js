@@ -7,18 +7,18 @@ var Stack = function() {
 
 var stackMethods = {};
 
-stackMethods.push = function(value){
+stackMethods.push = function(value) {
   this.sizeProp++;
   this.storage[this.sizeProp] = value;
-}
+};
 
-stackMethods.pop = function(){
+stackMethods.pop = function() {
   var result = this.storage[this.sizeProp];
   delete this.storage[this.sizeProp];
   this.sizeProp = Math.max(this.sizeProp - 1, 0);
   return result;
-}
+};
 
-stackMethods.size = function(){
+stackMethods.size = function() {
   return this.sizeProp;
-}
+};
