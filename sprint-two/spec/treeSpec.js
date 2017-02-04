@@ -52,8 +52,9 @@ describe('tree', function() {
     expect(tree.hasChildren()).to.equal(false);
   });
 
-  it('should have a methods named "removeFromParent" and a property named "parent"', function() {
+  it('should have a methods named "removeFromParent" and "traverse", and a property named "parent"', function() {
     expect(tree.removeFromParent).to.be.a('function');
+    expect(tree.traverse).to.be.a('function');
     expect(tree.hasOwnProperty('parent')).to.equal(true);
   });
 
@@ -71,7 +72,15 @@ describe('tree', function() {
     expect(tree.contains(5)).to.equal(false);
   });
 
-  //TODO: write test:
-    // Implement a .traverse() method on tree. .traverse() should accept a callback
-    // and execute it on every value contained in the tree
+  it('should accept a callback and execute it on every value contained in the tree', function(){
+    tree.addChild(4);
+    tree.addChild(3);
+    tree.addChild(2);
+    tree.traverse(function(value){
+      return value + 1;
+    });
+    expect(tree.children[0].value).to.equal(5);
+    expect(tree.children[1].value).to.equal(4);
+    expect(tree.children[2].value).to.equal(3);
+  });
 });

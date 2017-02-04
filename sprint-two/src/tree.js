@@ -50,7 +50,17 @@ treeMethods.removeFromParent = function() {
   }
 };
 
-
+treeMethods.traverse = function(func){
+  // execute the callback function on this node's value
+  this.value = func(this.value);
+  //if this node has children
+  if(this.hasChildren()){
+    // invoke traverse() for each child
+    for(var i = 0; i < this.children.length; i++){
+      this.children[i].traverse(func);
+    }
+  }
+}
 
 
 /*
