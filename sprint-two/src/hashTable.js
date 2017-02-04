@@ -42,8 +42,6 @@ HashTable.prototype.remove = function(k) {
   this._storage.set(index, undefined);
   this._filled--;
   if(this.percentFilled() < 25){
-    console.log('limit: ', this._limit);
-    console.log('% filled: ', this.percentFilled());
     this.resize(this._limit / 2);
   }
 };
@@ -61,7 +59,6 @@ HashTable.prototype.resize = function(limit) {
   });
   this._storage = resized;
   this._limit = limit;
-  console.log('resized limit: ', this._limit);
 };
 
 HashTable.prototype.percentFilled = function(){
