@@ -21,7 +21,7 @@ DoublyLinkedList.prototype.addToTail = function(value) {
   }
 };
 
-DoublyLinkedList.prototype.removeFromTail = function() {
+DoublyLinkedList.prototype.removeTail = function() {
 
 };
 
@@ -29,7 +29,7 @@ DoublyLinkedList.prototype.addToHead = function(value) {
 
 };
 
-DoublyLinkedList.prototype.removeFromHead = function() {
+DoublyLinkedList.prototype.removeHead = function() {
 
 };
 
