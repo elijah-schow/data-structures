@@ -67,7 +67,7 @@ describe('tree', function() {
     tree.addChild(5);
     child = tree.children[0];
     child.removeFromParent();
-    expect(child].parent).to.equal(null);
+    expect(child.parent).to.equal(null);
     expect(tree.contains(5)).to.equal(false);
   });
 
