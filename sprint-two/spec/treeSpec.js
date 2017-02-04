@@ -51,4 +51,27 @@ describe('tree', function() {
   it('should return false if children do not exist', function() {
     expect(tree.hasChildren()).to.equal(false);
   });
+
+  it('should have a methods named "removeFromParent" and a property named "parent"', function() {
+    expect(tree.removeFromParent).to.be.a('function');
+    expect(tree.hasOwnProperty('parent')).to.equal(true);
+  });
+
+  it('should have a reference to its parent', function(){
+    tree.addChild(5);
+    expect(tree.children[0].parent).to.equal(tree);
+  });
+  
+  it('should dissasociate a child from its parent and vice versa', function(){
+    var child;
+    tree.addChild(5);
+    child = tree.children[0];
+    child.removeFromParent();
+    expect(child].parent).to.equal(null);
+    expect(tree.contains(5)).to.equal(false);
+  });
+
+  //TODO: write test:
+    // Implement a .traverse() method on tree. .traverse() should accept a callback
+    // and execute it on every value contained in the tree
 });
