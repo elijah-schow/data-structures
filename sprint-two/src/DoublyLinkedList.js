@@ -30,11 +30,22 @@ DoublyLinkedList.prototype.addToHead = function(value) {
 };
 
 DoublyLinkedList.prototype.removeHead = function() {
-
+  var oldHead = this.head.value;
+  this.head = this.head.next;
+  return oldHead;
 };
 
 DoublyLinkedList.prototype.contains = function(value) {
+  var result = false;
+  var node = this.head;
+  do {
+    if (node.value === value) {
+      result = true;
+    }
+    node = node.next;
+  } while (node && !result);
 
+  return result;
 };
 
 var Node = function(value) {
