@@ -22,11 +22,23 @@ DoublyLinkedList.prototype.addToTail = function(value) {
 };
 
 DoublyLinkedList.prototype.removeTail = function() {
-
+  var oldTail = this.tail.value;
+  this.tail = this.tail.previous;
+  return oldTail;
 };
 
 DoublyLinkedList.prototype.addToHead = function(value) {
-
+  var node = Node(value);
+  var oldHead = this.head;
+  if (this.head === null) {
+    this.head = node;
+  } else {
+    oldHead.next = oldHead;
+    this.head = node;
+  }
+  if (this.tail === null) {
+    this.tail = node;
+  }
 };
 
 DoublyLinkedList.prototype.removeHead = function() {
