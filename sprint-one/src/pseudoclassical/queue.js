@@ -12,7 +12,7 @@ Queue.prototype.enqueue = function(value) {
     this.last++;
   }
   this.storage[this.last] = value;
-}
+};
 
 Queue.prototype.dequeue = function() {
   var result;
@@ -26,7 +26,7 @@ Queue.prototype.dequeue = function() {
     this.last = null;
   }
   return result;
-}
+};
 
 Queue.prototype.size = function() {
   var result;
@@ -36,4 +36,4 @@ Queue.prototype.size = function() {
     result = this.last - this.first + 1;
   }
   return result;
-}
+};

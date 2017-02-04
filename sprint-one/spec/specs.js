@@ -38,10 +38,11 @@ define([
         expect(stack.size()).to.equal(0);
       });
 
-      it('reports a size of 2 after adding two items', function() {
-        stack.push('a');
-        stack.push('b');
-        expect(stack.size()).to.equal(2);
+      it('reports a size of 100000 after adding 100000 items', function() {
+        for (var i = 0; i < 1000000; i++) {
+          stack.push(Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5));
+        }
+        expect(stack.size()).to.equal(1000000);
       });
 
       it('does not error when removing from an empty stack', function() {
@@ -110,10 +111,13 @@ define([
         expect(queue.size()).to.equal(0);
       });
 
-      it('reports a size of 2 after adding two items', function() {
-        queue.enqueue('a');
-        queue.enqueue('b');
-        expect(queue.size()).to.equal(2);
+      it('reports a size of 100000 after adding 100000 items', function() {
+        for (var i = 0; i < 1000000; i++) {
+          queue.enqueue(Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5));
+        }
+        //queue.enqueue('a');
+        //queue.enqueue('b');
+        expect(queue.size()).to.equal(1000000);
       });
 
       it('does not error when removing from an empty queue', function() {

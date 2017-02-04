@@ -9,14 +9,14 @@ var BinarySearchTree = function(value) {
 };
 
 BinarySearchTree.prototype.insert = function(value) {
-  if(value > this.value){
-    if(this.right){
+  if (value > this.value) {
+    if (this.right) {
       this.right.insert(value);
     } else {
       this.right = BinarySearchTree(value);
     }
-  } else if(value < this.value){
-    if(this.left){
+  } else if (value < this.value) {
+    if (this.left) {
       this.left.insert(value);
     } else {
       this.left = BinarySearchTree(value);
@@ -26,11 +26,11 @@ BinarySearchTree.prototype.insert = function(value) {
 
 BinarySearchTree.prototype.contains = function(value) {
   var result = false;
-  if(value === this.value) {
+  if (value === this.value) {
     result = true;
-  } else if(value > this.value && this.right){
+  } else if (value > this.value && this.right) {
     result = this.right.contains(value);
-  } else if(value < this.value && this.left){
+  } else if (value < this.value && this.left) {
     result = this.left.contains(value);
   }
   return result;

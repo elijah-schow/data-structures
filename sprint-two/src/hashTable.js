@@ -41,7 +41,7 @@ HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   this._storage.set(index, undefined);
   this._filled--;
-  if(this.percentFilled() < 25){
+  if(this.percentFilled() < 25) {
     this.resize(this._limit / 2);
   }
 };
@@ -50,8 +50,8 @@ HashTable.prototype.resize = function(limit) {
   var resized;
   limit = Math.round(limit);
   resized = LimitedArray(limit);
-  this._storage.each(function(array){
-    _.each(array, function(tuple){
+  this._storage.each(function(array) {
+    _.each(array, function(tuple) {
       var index = getIndexBelowMaxForKey(tuple[0], limit);
       resized.set(index, resized[index] || []);
       resized.get(index).push([tuple[0], tuple[1]]);
