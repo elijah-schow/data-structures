@@ -2,8 +2,6 @@ var DoublyLinkedList = function() {
   var list = {};
   this.head = null;
   this.tail = null;
-
-
 };
 
 DoublyLinkedList.prototype.addToTail = function(value) {
