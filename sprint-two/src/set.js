@@ -13,7 +13,13 @@ setPrototype.add = function(item) {
 };
 
 setPrototype.contains = function(item) {
-  return this._storage.indexOf(item) !== -1;
+  var result = false;
+  _.each(this._storage, function(value){
+  	if(_.isEqual(value, item)){
+  		result = true;
+  	}
+  });
+  return result;
 };
 
 setPrototype.remove = function(item) {

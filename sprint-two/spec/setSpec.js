@@ -29,7 +29,11 @@ describe('set', function() {
     set.add('Elon Musk');
     set.add('Jeff Bezos');
     set.add('Steve Jobs');
-    expect(_.uniq(set._storage)).to.eql(set._storage);
+    expect([
+        'Elon Musk',
+        'Jeff Bezos',
+        'Steve Jobs'
+      ]).to.eql(set._storage);
   });
 
   it('should accept both numbers and strings', function() {
@@ -38,8 +42,52 @@ describe('set', function() {
     set.add(4);
     set.add('Steve Jobs');
     set.add(2);
-     set.add(2);
-    expect(_.uniq(set._storage)).to.eql(set._storage);
+    set.add(2);
+    expect([
+        'Elon Musk',
+        4,
+        'Steve Jobs',
+        2
+      ]).to.eql(set._storage);
+  });
+
+  it('should accept objects of any type', function() {
+    set.add('Elon Musk');
+    set.add('Elon Musk');
+    set.add(4);
+    set.add('Steve Jobs');
+    set.add(2);
+    set.add(2);
+    set.add({
+      'name' : 'socks',
+      'color' : 'red'
+    });
+    set.add({
+      'name' : 'socks',
+      'color' : 'red'
+    });
+    set.add({
+      'name' : 'socks',
+      'color' : 'blue'
+    });
+    set.add({
+      'name' : 'socks',
+      'color' : 'blue'
+    });
+    expect([
+        'Elon Musk',
+        4,
+        'Steve Jobs',
+        2,
+        {
+          'name' : 'socks',
+          'color' : 'red'
+        },
+        {
+          'name' : 'socks',
+          'color' : 'blue'
+        }
+      ]).to.eql(set._storage);
   });
 
 });
