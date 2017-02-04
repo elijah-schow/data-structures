@@ -32,4 +32,14 @@ describe('set', function() {
     expect(_.uniq(set._storage)).to.eql(set._storage);
   });
 
+  it('should accept both numbers and strings', function() {
+    set.add('Elon Musk');
+    set.add('Elon Musk');
+    set.add(4);
+    set.add('Steve Jobs');
+    set.add(2);
+     set.add(2);
+    expect(_.uniq(set._storage)).to.eql(set._storage);
+  });
+
 });
