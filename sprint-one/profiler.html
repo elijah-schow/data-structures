@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profiler</title>
+</head>
+<body>
+<!-- 3rd Part Scripts -->
+<script src="../lib/jquery/jquery.js"></script>
+<script src="../lib/underscore/underscore.js"></script>
+<!-- Javascript -->
+<script type="text/javascript" src="src/functional-shared/queue.js"></script>
+<script type="text/javascript" src="src/functional-shared/stack.js"></script>
+<script type="text/javascript">
+
+console.log('Begin Profiling');
+console.log('Queue - Prototypal');
+
+
+console.time('Create 100,000 instances');
+var queues = [];
+for(var i = 0; i < 1000000; i++){
+	queues[i] = Queue();
+}
+console.timeEnd('Queue: create 100,000 instances');
+
+// Do something a given number of times
+// function repeat(count, func){
+// 	for(var i = 0; i < count; i++){
+// 		func(i);
+// 	}
+// }
+
+// function testEnqueue(){
+// 	console.time('Enqueue 1,000,000 items');
+// 	var queue = Queue();
+// 	repeat(1000000, function(){
+// 		queue.enqueue(Math.random());
+// 	});
+// 	console.timeEnd('Enqueue 1,000,000 items');
+// };
+
+// function testDequeue(){
+// 	var queue = Queue();
+// 	repeat(100000, function(){
+// 		queue.enqueue(Math.random());
+// 	});
+// 	console.time('Dequeue 100,000 items');
+// 	repeat(100000, function(){
+// 		queue.dequeue();
+// 	});
+// 	console.timeEnd('Dequeue 100,000 items');
+// };
+
+// function testSize(){
+// 	var queue = Queue();
+// 	repeat(1000000, function(){
+// 		queue.enqueue(Math.random());
+// 	});
+// 	console.time('Get size');
+// 	queue.size();
+// 	console.timeEnd('Get size');
+// };
+
+</script>
+</body>
+</html>
